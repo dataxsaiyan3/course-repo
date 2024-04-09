@@ -9,6 +9,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: build
-        run: docker build . -t ghcr.io/dataxsaiyan3/testing:latest
+        run: |
+          docker build . -t ghcr.io/dataxsaiyan3/testing:latest
       - name: push
-        run: docker push ghcr.io/dataxsaiyan3/testing:latest
+        run: |
+          docker login ghcr.io -u dataxsaiyan3 -p ${{ secrets.DOCKER_TOKEN }}
+          docker push ghcr.io/dataxsaiyan3/testing:latest
