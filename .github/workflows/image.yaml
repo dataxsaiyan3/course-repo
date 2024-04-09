@@ -13,5 +13,5 @@ jobs:
           docker build . -t ghcr.io/dataxsaiyan3/testing:latest
       - name: push
         run: |
-          docker login ghcr.io -u dataxsaiyan3 -p ${{ secrets.GITHUB_TOKEN }}
+          docker login ghcr.io -u dataxsaiyan3 --password-stdin ${{ secrets.GITHUB_TOKEN }}
           docker push ghcr.io/dataxsaiyan3/testing:latest
