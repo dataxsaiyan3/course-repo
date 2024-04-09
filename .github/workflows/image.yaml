@@ -3,7 +3,9 @@ on:
   [workflow_dispatch]
 
 jobs:
+  
   push_image:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
